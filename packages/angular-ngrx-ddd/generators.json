@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "angular-ngrx-ddd",
+  "version": "0.0.1",
+  "generators": {
+    "create-domain": {
+      "factory": "./src/generators/create-domain/generator",
+      "schema": "./src/generators/create-domain/schema.json",
+      "description": "create-domain generator"
+    }
+  }
+}
