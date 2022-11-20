@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import {
+  <%= projectVariableName %>FeatureKey,
+  <%= projectVariableName %>InitialState,
+  <%= projectVariableName %>Reducer,
+} from './+state/<%= projectName %>.reducer';
+import { <%= projectClassName %>Effects } from './+state/<%= projectName %>.effects';
+import { <%= projectClassName %>Facade } from './application/<%= projectName %>.facade';
+import { EffectsModule } from '@ngrx/effects';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    StoreModule.forFeature(<%= projectVariableName %>FeatureKey, <%= projectVariableName %>Reducer, {
+      initialState: <%= projectVariableName %>InitialState,
+    }),
+    EffectsModule.forFeature([<%= projectClassName %>Effects]),
+  ],
+  providers: [
+    <%= projectClassName %>Effects,
+    <%= projectClassName %>Facade
+  ],
+})
+export class <%= projectClassName %>DomainModule {}

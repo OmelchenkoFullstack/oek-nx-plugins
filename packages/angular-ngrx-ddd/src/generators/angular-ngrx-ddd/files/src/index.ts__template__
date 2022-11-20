@@ -1,0 +1,12 @@
+export * from './lib/<%= projectName %>-domain.module';
+// section +state
+export * from './lib/+state/<%= projectName %>.actions';
+export * from './lib/+state/<%= projectName %>.effects';
+export * from './lib/+state/<%= projectName %>.reducer';
+export * from './lib/+state/<%= projectName %>.selectors';
+// section application
+export * from './lib/application/<%= projectName %>.facade';
+// section entity
+export * from './lib/entities/<%= projectName %>';
+// section infrastructure
+export * from './lib/infrastructure/<%= projectName %>.service';

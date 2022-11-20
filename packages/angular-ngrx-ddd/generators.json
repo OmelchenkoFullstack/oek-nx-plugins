@@ -3,10 +3,10 @@
   "name": "angular-ngrx-ddd",
   "version": "0.0.1",
   "generators": {
-    "create-domain": {
-      "factory": "./src/generators/create-domain/generator",
-      "schema": "./src/generators/create-domain/schema.json",
-      "description": "create-domain generator"
+    "angular-ngrx-ddd": {
+      "factory": "./src/generators/angular-ngrx-ddd/generator",
+      "schema": "./src/generators/angular-ngrx-ddd/schema.json",
+      "description": "angular-ngrx-ddd generator"
     }
   }
 }

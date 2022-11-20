@@ -2,11 +2,11 @@ import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
-import { CreateDomainGeneratorSchema } from './schema';
+import { AngularNgrxDddGeneratorSchema } from './schema';
 
-describe('create-domain generator', () => {
+describe('angular-ngrx-ddd generator', () => {
   let appTree: Tree;
-  const options: CreateDomainGeneratorSchema = { name: 'test' };
+  const options: AngularNgrxDddGeneratorSchema = { name: 'test' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();

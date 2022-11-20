@@ -1,0 +1,11 @@
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { <%= projectVariableName %>FeatureKey } from './<%= projectName %>.reducer';
+import { <%= projectClassName %> } from '../entities/<%= projectName %>';
+
+const <%= projectVariableName %>FeatureKey = createFeatureSelector<<%= projectClassName %>>(<%= projectVariableName %>FeatureKey);
+
+// section Default
+export const getDefault = createSelector(
+  <%= projectVariableName %>FeatureKey,
+  (state: <%= projectClassName %>) => state._self
+);

@@ -1,0 +1,31 @@
+import { <%= projectClassName %> } from '../entities/<%= projectName %>';
+import * as <%= projectClassName %>Actions from '../+state/<%= projectName %>.actions';
+import { Action, createReducer } from '@ngrx/store';
+import { mutableOn } from 'ngrx-etc';
+import { <%= projectClassName %> } from '../entities/<%= projectName %>';
+
+export const <%= projectVariableName %>FeatureKey = '<%= projectVariableName %>';
+
+export interface <%= projectClassName %>State {
+  readonly [<%= projectVariableName %>FeatureKey]: <%= projectClassName %>;
+}
+
+export const <%= projectVariableName %>InitialState: <%= projectClassName %> = {
+  _default: string,
+};
+
+const reducer = createReducer(
+  <%= projectVariableName %>InitialState,
+
+  mutableOn(
+    <%= projectClassName %>Actions._defaultSuccess,
+    (state: <%= projectClassName %>, action: { data: <%= projectClassName %> }) => {
+      state._default = action.data._default;
+    }
+  )
+
+);
+
+export function <%= projectVariableName %>Reducer(state: any, action: Action) {
+  return reducer(state, action);
+}

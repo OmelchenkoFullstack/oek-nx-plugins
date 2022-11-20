@@ -39,7 +39,7 @@ describe('angular-ngrx-ddd e2e', () => {
         `generate @oek/angular-ngrx-ddd:angular-ngrx-ddd ${project} --directory subdir`
       );
       expect(() =>
-        checkFilesExist(`libs/subdir/${project}/src/index.ts`)
+        checkFilesExist(`libs/subdir/domain/src/index.ts`)
       ).not.toThrow();
     }, 120000);
   });
@@ -54,7 +54,7 @@ describe('angular-ngrx-ddd e2e', () => {
       await runNxCommandAsync(
         `generate @oek/angular-ngrx-ddd:angular-ngrx-ddd ${projectName} --tags e2etag,e2ePackage`
       );
-      const project = readJson(`libs/${projectName}/project.json`);
+      const project = readJson(`libs/domain/project.json`);
       expect(project.tags).toEqual(['e2etag', 'e2ePackage']);
     }, 120000);
   });

@@ -1,0 +1,16 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiService } from '@front-end/shared/utils';
+import { <%= projectClassName %> } from '../entities/<%= projectName %>';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class <%= projectClassName %>Service {
+  constructor(private apiService: ApiService) {}
+
+  // section Default
+  _default(): Observable<<%= projectClassName %>> {
+    return this.ApiService.post(`/_default${_default$}`, {});
+  }
+}

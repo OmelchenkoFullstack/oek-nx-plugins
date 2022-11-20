@@ -1,0 +1,38 @@
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { catchError, concatMap, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import * as <%= projectClassName %>Actions from './<%= projectName %>.actions';
+import { <%= projectClassName %>Service } from '../infrastructure/<%= projectName %>.service';
+import { <%= projectClassName %>Facade } from '../application/<%= projectName %>.facade';
+import { <%= projectClassName %> } from '../entities/<%= projectName %>';
+
+@Injectable()
+export class <%= projectClassName %>Effects {
+
+  _default = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(<%= projectClassName %>Actions._default),
+      concatMap((action: { _default: string }) =>
+        this.<%= projectVariableName %>Service._default(action._default).pipe(
+          map((data: <%= projectClassName %>) => {
+            return <%= projectClassName %>Actions._defaultSuccess({
+              data,
+            });
+          }),
+          catchError((error) => {
+            return of(<%= projectClassName %>Actions._defaultFailed({ error }));
+          })
+        )
+      )
+    );
+  });
+
+  constructor(
+    private actions$: Actions,
+    private <%= projectVariableName %>Service: <%= projectClassName %>Service,
+    private <%= projectVariableName %>Facade: <%= projectClassName %>Facade,
+    private router: Router
+  ) {}
+}

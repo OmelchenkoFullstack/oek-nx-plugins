@@ -1,0 +1,4 @@
+
+export interface <%= projectClassName %> {
+  _default: string;
+}

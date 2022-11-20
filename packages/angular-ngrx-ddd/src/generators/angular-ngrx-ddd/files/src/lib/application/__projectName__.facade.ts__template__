@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as <%= projectClassName %>Actions from '../+state/<%= projectName %>.actions';
+import { <%= projectClassName %>State } from '../+state/<%= projectName %>.reducer';
+import * as <%= projectVariableName %>Query from '../+state/<%= projectName %>.selectors';
+
+@Injectable({ providedIn: 'root' })
+export class <%= projectClassName %>Facade {
+  _default$ = this.store.select(<%= projectVariableName %>Query.getDefault);
+
+  constructor(private store: Store<<%= projectClassName %>State>) {}
+
+  // section Default
+  _default(_default: string) {
+    this.store.dispatch(
+      <%= projectClassName %>Actions._default({
+        _default
+      })
+    );
+  }
+}
